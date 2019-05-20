@@ -1,0 +1,160 @@
+body {
+  background-color: #2a2a2a;
+  .navbar {
+    position: relative;
+    background-color: #2a2a2a;
+    border-bottom: 3px solid #ef6c9e;
+    margin-bottom: 0;
+    .navbar-toggle {
+      background-color: #40fffb;
+    }
+    .miku-set {
+      float: left;
+      background-image: url("../images/logo.png");
+      background-size: 100%;
+      background-repeat: no-repeat;
+      font-size: 0 !important;
+      text-indent: -99999px;
+      background-position: center;
+      width: 50px;
+      height: 34px;
+      margin-top: 8px;
+      margin-left: 15px;
+    }
+    .navbar-toggle:hover a {
+      background-color: #40fffb;
+    }
+    .navbar-brand {
+      height: 100% !important;
+      padding: 12rem/75 15rem/75;
+    }
+    .navbar-nav {
+      > li {
+        > a {
+          color: #fff;
+          font-weight: 800;
+          &:hover {
+            color: #fff;
+          }
+        }
+        > .nav-list {
+          padding-inline-start: 0;
+          padding-left: 15px;
+          position: absolute;
+          z-index: 9999;
+          background-color: #e77ea6;
+          display: none;
+          opacity: 0.8;
+          border: 1px solid #2a2a2a;
+          li {
+            list-style: none;
+            padding-top: 1em;
+            padding-inline-start: 0;
+            a {
+              text-decoration: none;
+              font-weight: 600;
+              color: #fff;
+            }
+          }
+        }
+        #logo {
+          background-image: url("../images/logo.png");
+          background-size: 100%;
+          background-repeat: no-repeat;
+          font-size: 0 !important;
+          text-indent: -99999px;
+          background-position: center;
+          width: 100px;
+        }
+      }
+    }
+    .navbar-form {
+      .btn-default {
+        background-color: #40fffb;
+        color: #fff;
+      }
+    }
+  }
+
+  header {
+    border-top: 3px solid #ef6c9e;
+    .miku-center {
+      background-color: #2a2a2a;
+      opacity: 0.8;
+      .btn-primary {
+        background-color: #f165a4;
+      }
+      .btn-default {
+        background-color: #40fffb;
+      }
+      .thumbnail {
+        background-color: #2a2a2a;
+
+        h3 {
+          color: #fff;
+        }
+      }
+    }
+  }
+  .progress {
+    margin-bottom: 0;
+    background-color: #2a2a2a;
+    opacity: 0.8;
+    .progress-bar {
+      position: relative;
+      z-index: 100;
+      color: white;
+    }
+  }
+  .slide {
+    width: 100%;
+    margin-bottom: 15px;
+    .carousel-inner {
+      img {
+        width: 100%;
+      }
+    }
+  }
+  .miku-sp {
+    position: absolute;
+    right: 0;
+    z-index: 99999999999;
+    opacity: 0.8;
+    color: #fff;
+    font-weight: 800;
+    display: none;
+    width: 10em;
+    ul {
+      padding-inline-start: 0;
+      li {
+        list-style: none;
+        background: #ef6c9e;
+        padding: 0.5em;
+        border: 0.03em solid #2a2a2a;
+        span {
+          float: right;
+        }
+      }
+    }
+  }
+  .jumbotron {
+    background: #2a2a2a;
+    text-align: center;
+  }
+  .miku-cen {
+    img {
+      width: 100%;
+      position: absolute;
+      left: 0;
+    }
+  }
+  .medio {
+    position: relative;
+    background-color: #2a2a2a;
+    width: 100%;
+    opacity: 0.8;
+    video {
+      border: 5px solid #e77ea6;
+    }
+  }
+}
