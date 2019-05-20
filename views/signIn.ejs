@@ -1,0 +1,130 @@
+<%- include("./select/head.ejs");%>
+<link rel="stylesheet" href="/public/css/signin.css">
+<%- include("./select/navbar.ejs"); %>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3 col-lg-3 hidden-sm hidden-xs" style="margin-top: 15px">
+                <img src="/public/images/2019.png" alt="..." class="img-thumbnail">
+                <div class="list-group">
+                    <a href="#" class="list-group-item active" style="background-color: #ef6c9e">
+                        Cras justo odio
+                    </a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-send"></span>Dapibus ac facilisis in</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-send"></span>Morbi leo risus</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-send"></span>Porta ac consectetur ac</a>
+                    <a href="#" class="list-group-item"><span class="glyphicon glyphicon-send"></span>Vestibulum at eros</a>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                <form method="POST">
+                    <input type="hidden" name="img" id="hidefile">
+                    <div class="form-group notice" style="display: none">
+                        <p style="color:#ef6c9e;">邮箱或者密码不正确</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email address</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email"
+                            name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1"
+                            placeholder="password" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="photo">Head</label><br />
+                        <img src="../public/images/hatsune_miku_art_girl_profile_97074_1920x1080.jpg" class="img-rounded" id="photo" width="10%">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">File input</label>
+                        <input type="file" id="exampleInputFile">
+                        <p class="help-block">Example block-level help text here.</p>
+                    </div>
+                    <div class="checkbox">
+                        <label>
+                            <input type="checkbox"> Check me out
+                        </label>
+                    </div>
+                    <input type="button" class="btn btn-default signIn" value="注册">
+                    <input type="button" class="btn btn-default timeout" style="display: none">
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="/public/js/jquery.js"></script>
+<script src="/public/js/bootstrap.js"></script>
+<script src="/public/js/index.js"></script>
+<script>
+    // 监视文件域的状态
+    $(function () {
+        $("#exampleInputFile").on("change", function () {
+            var formdata = new FormData()
+            var file = $("#exampleInputFile")[0].files[0] //files是dom方法，files得到的是文件伪数组
+            formdata.append("img", file)//插入到formdata中
+            console.log(formdata)
+            $.ajax({
+                type: "post",
+                data: formdata,
+                dataType: "json",
+                url: "/upload",
+                contentType: false,
+                processData: false,
+                success: (res) => {
+                    console.log(res)
+                    if (res.code == 200) {
+                        $("#photo").attr("src", "../public/images/" + res.img)
+                        $("#hidefile").val(res.img)
+                    }
+                }
+            })
+        })
+
+        $(".signIn").on("click", function(){
+            // console.log($("form").serialize())
+            // console.log($(".email").val())
+            $.ajax({
+                type: "post",
+                data: $("form").serialize(),
+                url: "/sign",
+                dataType: "json",
+                beforeSend: function() {
+                    if ($("#exampleInputEmail1").val().length == 0 || $("#exampleInputPassword1").val().length==0) {
+                        // 测试邮箱是否符合要求
+                        $(".notice p").text("邮箱和密码不能为空")
+                        $(".notice").show(300).delay(1000).hide(300)
+                        return false
+                    } 
+                },
+                success: function(res) {
+                    // delay(1000) 持续时间一秒
+                    if(res.code==200){
+                        $("#exampleInputEmail1").val("")
+                        $("#exampleInputPassword1").val("")
+                        $(".notice").show(300).delay(1000).hide(300)
+                        $(".notice p").text(res.msg) 
+                        $(".timeout").show(300)
+                        $(".timeout").val("3秒后跳转登录")
+                    }
+                    var time = 3
+                    var timeId = setInterval(function () {
+                        time--
+                        $(".timeout").val(time+"秒后跳转登录")
+                        if (time==0) {
+                            $(".timeout").hide()
+                            clearInterval = timeId
+                        }
+                    }, 1000)
+                }
+            })
+        })
+    })
+
+
+</script>
+
+</html>

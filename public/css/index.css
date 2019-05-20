@@ -1,0 +1,148 @@
+body {
+  background-color: #2a2a2a;
+}
+body .navbar {
+  position: relative;
+  background-color: #2a2a2a;
+  border-bottom: 3px solid #ef6c9e;
+  margin-bottom: 0;
+}
+body .navbar .navbar-toggle {
+  background-color: #40fffb;
+}
+body .navbar .miku-set {
+  float: left;
+  background-image: url("../images/logo.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-size: 0 !important;
+  text-indent: -99999px;
+  background-position: center;
+  width: 50px;
+  height: 34px;
+  margin-top: 8px;
+  margin-left: 15px;
+}
+body .navbar .navbar-toggle:hover a {
+  background-color: #40fffb;
+}
+body .navbar .navbar-brand {
+  height: 100% !important;
+  padding: 0.16rem 0.2rem;
+}
+body .navbar .navbar-nav > li > a {
+  color: #fff;
+  font-weight: 800;
+}
+body .navbar .navbar-nav > li > a:hover {
+  color: #fff;
+}
+body .navbar .navbar-nav > li > .nav-list {
+  padding-inline-start: 0;
+  padding-left: 15px;
+  position: absolute;
+  z-index: 9999;
+  background-color: #e77ea6;
+  display: none;
+  opacity: 0.8;
+  border: 1px solid #2a2a2a;
+}
+body .navbar .navbar-nav > li > .nav-list li {
+  list-style: none;
+  padding-top: 1em;
+  padding-inline-start: 0;
+}
+body .navbar .navbar-nav > li > .nav-list li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #fff;
+}
+body .navbar .navbar-nav > li #logo {
+  background-image: url("../images/logo.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  font-size: 0 !important;
+  text-indent: -99999px;
+  background-position: center;
+  width: 100px;
+}
+body .navbar .navbar-form .btn-default {
+  background-color: #40fffb;
+  color: #fff;
+}
+body header {
+  border-top: 3px solid #ef6c9e;
+}
+body header .miku-center {
+  background-color: #2a2a2a;
+  opacity: 0.8;
+}
+body header .miku-center .btn-primary {
+  background-color: #f165a4;
+}
+body header .miku-center .btn-default {
+  background-color: #40fffb;
+}
+body header .miku-center .thumbnail {
+  background-color: #2a2a2a;
+}
+body header .miku-center .thumbnail h3 {
+  color: #fff;
+}
+body .progress {
+  margin-bottom: 0;
+  background-color: #2a2a2a;
+  opacity: 0.8;
+}
+body .progress .progress-bar {
+  position: relative;
+  z-index: 100;
+  color: white;
+}
+body .slide {
+  width: 100%;
+  margin-bottom: 15px;
+}
+body .slide .carousel-inner img {
+  width: 100%;
+}
+body .miku-sp {
+  position: absolute;
+  right: 0;
+  z-index: 99999999999;
+  opacity: 0.8;
+  color: #fff;
+  font-weight: 800;
+  display: none;
+  width: 10em;
+}
+body .miku-sp ul {
+  padding-inline-start: 0;
+}
+body .miku-sp ul li {
+  list-style: none;
+  background: #ef6c9e;
+  padding: 0.5em;
+  border: 0.03em solid #2a2a2a;
+}
+body .miku-sp ul li span {
+  float: right;
+}
+body .jumbotron {
+  background: #2a2a2a;
+  text-align: center;
+}
+body .miku-cen img {
+  width: 100%;
+  position: absolute;
+  left: 0;
+}
+body .medio {
+  position: relative;
+  background-color: #2a2a2a;
+  width: 100%;
+  opacity: 0.8;
+}
+body .medio video {
+  border: 5px solid #e77ea6;
+}
